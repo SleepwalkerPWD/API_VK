@@ -9,7 +9,7 @@ $(document).ready(function() {
         'offset=84', 'offset=96', 'offset=108',
         'offset=120', 'offset=132', 'offset=144',
         'offset=156', 'offset=168', 'offset=180',
-        'offset=196', 'offset=204', 'offset=216',
+        'offset=192', 'offset=204', 'offset=216',
         'offset=228', 'offset=240', 'offset=252'
     ];
 
@@ -18,7 +18,7 @@ $(document).ready(function() {
     var page = false;
     
     $(window).scroll(function() {
-        if (($(window).height() + $(window).scrollTop() >= $(document).height() -100) && !page) {
+        if (($(window).height() + $(window).scrollTop() >= $(document).height() -30) && !page) {
             // console.log($(window).height() + " " +  $(window).scrollTop() + " " + $(document).height());
             	loadCount(1);
             $(".load").fadeIn(500, function() {
