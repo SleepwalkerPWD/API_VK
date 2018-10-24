@@ -34,13 +34,14 @@ $(document).ready(function() {
 
     //Счетчик для подгрузки данных из массива
     var count = 0;
+    
     function loadCount(x) {
         for (var i = count; i < count + x; i++) {
             if (i > countID.length - 1)
                 return;
             else
                 runAjax(countID[i]);
-        
+         
         }
         count += x;
         // console.log(count);
@@ -55,8 +56,8 @@ $(document).ready(function() {
         $.ajax({
             url: 'https://api.vk.com/method/wall.get?&owner_id=-33191158&domain=summerday&access_token=3195e9e93195e9e93115aff35931c30219331953195e9e9697cc67864e1f0c35fe7c074&count=12&' + id + '&v=5.85',
             method: 'GET',
-            dataType: 'JSONP',
-            success: function(response) {
+            dataType: 'JSONP'})
+            .then(function(response) {
                 answer = response;
                 // console.log(response);
                 answer.response.items.forEach(function(item) {
@@ -96,12 +97,9 @@ $(document).ready(function() {
                 //DIV_обертка для данных получаемых из VK
                 $('#wrapper').html(output);
 
-            },
-            error: function(error) {
+            })
+            .catch(function(error) {
                 console.log(error);
-            }
-        });
-    }
-
-
+            });
+        }
 });
